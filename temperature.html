@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <style>
+        body{
+            margin-left: 380px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+            background-color: black;
+        }
+        .maincon{
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            justify-content: space-around;
+            border-radius: 20px;
+            display: block;
+            border: 3px solid lawngreen;
+        }
+        #tem,
+        #sol{
+            border: none;
+            width: 80%;
+            height: 20px;
+            margin-top: 40px;
+            margin-left: 40px;
+            border-bottom: 2px solid wheat;
+            font-size: medium;
+            color: white;
+            position: absolute;
+            position: relative;
+            background: none;
+        }
+        #butt{
+            margin-top: 40px;
+            margin-left: 150px;
+            margin-bottom: 40px;
+            padding: 20px 20px 20px 20px;
+            color: black;
+            font-size: 0.4cm;
+            border: none;
+            border-radius: 10px;
+            background-color: lightgrey;
+        }
+        .heading{
+            color: skyblue;
+            margin-bottom: 100px;
+            margin-top: 0px;
+            margin-left: 80px;
+            position: relative;
+        }
+.heading::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 350px;
+    height: 3px;
+    background-color: palevioletred;
+    border-radius: 5px;
+    transform: scaleX(1);
+    transition: transform .5s;
+}
+.heading:hover::after{
+    transform: scaleX(0);
+}
+    </style>
+</head>
+<body>
+    <h1 class="heading"> Temperature Conversion </h1>
+    <div class="maincon">
+    <label class="insidebox"><input id="tem" type="text" placeholder="Enter the Temperature"> </label><br>
+    <label class="insidebox2"><input id="sol" type="text" placeholder=""> </label><br>
+    <button type="button" onclick="cel()" id="butt"> Convert to Celsius </button><br>
+    <button type="button" onclick="fah()" id="butt"> Convert to Fahrenheit </button><br>
+    </div>
+    <script>
+        function cel(){
+            let digit1 = document.getElementById("tem").value;
+            let cl = (parseInt(digit1)*9/5)+32;
+            document.getElementById("sol").value = cl;
+        }
+        function fah(){
+            let digit2 = document.getElementById("tem").value;
+            let fahr = (parseInt(digit2)-32)*5/9;
+            document.getElementById("sol").value = fahr;
+        }
+    </script>
+</body>
+</html>
